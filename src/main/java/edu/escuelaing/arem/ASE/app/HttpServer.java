@@ -5,6 +5,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
 import java.io.*;
 
 public class HttpServer {
@@ -13,8 +14,14 @@ public class HttpServer {
      * ApiMovie instance to search for information about a given movie name
      */
     private static ApiMovie myAPI = new ApiMovie();
+    private static HashMap<String, WebService> services = new HashMap<>();
+    private static HttpServer _instance = new HttpServer();
 
-    public static void main(String[] args) throws IOException, URISyntaxException {
+    public static HttpServer getInstance() {
+        return _instance;
+    }
+
+    public void runServer() throws IOException, URISyntaxException {
         ServerSocket serverSocket = null;
         try {
             serverSocket = new ServerSocket(35000);
@@ -56,7 +63,8 @@ public class HttpServer {
             }
 
             URI fileuri = new URI(uriStr);
-            System.out.println("Path: " + fileuri.getPath());
+            String path = fileuri.getPath();
+            System.out.println("Path: " + path);
 
             if (uriStr.contains("movie?title")) {
                 String[] parts = uriStr.split("=");
@@ -64,7 +72,14 @@ public class HttpServer {
                 printMovieResult(movieName, out);
             } else {
                 try {
-                    outputLine = httpClientHtml(fileuri.getPath(), clientSocket);
+                    if (path.startsWith("/action")) {
+                        String webURI = path.replace("/action", "");
+                        if (services.containsKey(webURI)) {
+                            outputLine = services.get(webURI).handle();
+                        }
+                    } else {
+                        outputLine = httpClientHtml(path, clientSocket);
+                    }
                 } catch (IOException e) {
                     outputLine = httpError();
                 }
@@ -169,5 +184,9 @@ public class HttpServer {
                 + movieInfo;
 
         out.println(movieResponse);
+    }
+
+    public static void get(String r, WebService s) {
+        services.put(r, s);
     }
 }
