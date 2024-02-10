@@ -16,6 +16,7 @@ public class HttpServer {
     private static ApiMovie myAPI = new ApiMovie();
     private static HashMap<String, WebService> services = new HashMap<>();
     private static HttpServer _instance = new HttpServer();
+    private static String filesDirectory;
 
     public static HttpServer getInstance() {
         return _instance;
@@ -77,7 +78,11 @@ public class HttpServer {
                         if (services.containsKey(webURI)) {
                             outputLine = services.get(webURI).handle();
                         }
+                    } else if (path.startsWith("/files")) {
+                        setFilesDirectory("target/classes");
+                        outputLine = httpClientHtml(path, clientSocket);
                     } else {
+                        setFilesDirectory("target/classes/public");
                         outputLine = httpClientHtml(path, clientSocket);
                     }
                 } catch (IOException e) {
@@ -139,7 +144,8 @@ public class HttpServer {
                 + "Content-Type:" + content_type + "\r\n"
                 + "\r\n";
 
-        Path file = Paths.get("target/classes/public" + path);
+        Path file = Paths.get(filesDirectory + path);
+        System.out.println(file);
 
         Charset charset = Charset.forName("UTF-8");
 
@@ -188,5 +194,9 @@ public class HttpServer {
 
     public static void get(String r, WebService s) {
         services.put(r, s);
+    }
+
+    public static void setFilesDirectory(String directory) {
+        filesDirectory = directory;
     }
 }
