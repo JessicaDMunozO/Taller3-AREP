@@ -68,6 +68,15 @@ public class HttpServer {
             String path = fileuri.getPath();
             System.out.println("Path: " + path);
 
+            String query = fileuri.getQuery();
+            System.out.println("Query: " + query);
+            String param = "";
+
+            if (query != null) {
+                String[] queryParam = query.split("=");
+                param = queryParam[1];
+            }
+
             if (uriStr.contains("movie?title")) {
                 String[] parts = uriStr.split("=");
                 movieName = parts[1];
@@ -82,7 +91,7 @@ public class HttpServer {
                     if (path.startsWith("/action")) {
                         String webURI = path.replace("/action", "");
                         if (services.containsKey(webURI)) {
-                            outputLine = services.get(webURI).handle();
+                            outputLine = services.get(webURI).handle(param);
                         }
                     } else if (path.startsWith("/files")) {
                         setFilesDirectory("target/classes");
