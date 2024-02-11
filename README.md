@@ -54,11 +54,11 @@ Por último, si se ingresa la dirección http://localhost:35000/action/ieti
 
 ![image](https://github.com/JessicaDMunozO/Taller3-AREP/assets/123814482/6c014cdd-e9db-4eae-b5a6-4ef6207d0e10)
 
-Y su se ingresa un parámetro http://localhost:35000/action/ieti?query=hola
+Y si se ingresa un parámetro http://localhost:35000/action/ieti?query=hola
 
 ![image](https://github.com/JessicaDMunozO/Taller3-AREP/assets/123814482/8768603c-60e4-4a65-af8a-5263707f9c73)
 
-### Pruebas otras funcionalidades en Windows
+### Prueba otras funcionalidades en Windows
 Con lo anterior se probó el funcionamiento de los servicios web de tipo GET y se evidenció la funcionalidad de la lectura de parámetros del query. 
 
 Ahora bien, los archivos estáticos traidos del directorio `public` siguen funcionando. Al ingresar la dirección http://localhost:35000/movies.html se muestra la página html que tiene css, script e imagen.
