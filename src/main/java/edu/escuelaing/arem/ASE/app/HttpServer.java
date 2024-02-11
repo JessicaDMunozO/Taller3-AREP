@@ -17,12 +17,13 @@ public class HttpServer {
     private static HashMap<String, WebService> services = new HashMap<>();
     private static HttpServer _instance = new HttpServer();
     private static String filesDirectory;
+    private static String type = "text/html";
 
     public static HttpServer getInstance() {
         return _instance;
     }
 
-    public void runServer() throws IOException, URISyntaxException {
+    public void runServer(String responseType) throws IOException, URISyntaxException {
         ServerSocket serverSocket = null;
         try {
             serverSocket = new ServerSocket(35000);
@@ -70,6 +71,11 @@ public class HttpServer {
             if (uriStr.contains("movie?title")) {
                 String[] parts = uriStr.split("=");
                 movieName = parts[1];
+
+                if (responseType.equals("json")) {
+                    setResponseType("application/json");
+                }
+
                 printMovieResult(movieName, out);
             } else {
                 try {
@@ -185,7 +191,7 @@ public class HttpServer {
         }
 
         String movieResponse = "HTTP/1.1 200 OK\r\n"
-                + "Content-Type:text/html; charset=ISO-8859-1\r\n"
+                + "Content-Type:" + type + "\r\n"
                 + "\r\n"
                 + movieInfo;
 
@@ -198,5 +204,9 @@ public class HttpServer {
 
     public static void setFilesDirectory(String directory) {
         filesDirectory = directory;
+    }
+
+    public static void setResponseType(String responseType) {
+        type = responseType;
     }
 }

@@ -29,6 +29,6 @@ public class MyWebServices {
             return resp;
         });
 
-        HttpServer.getInstance().runServer();
+        HttpServer.getInstance().runServer("json");
     }
 }
