@@ -1,5 +1,5 @@
 # Taller 3 - AREP
-Para este taller se continuo con la construcción de un servidor web en Java con una funcionalidad similar a la del microframework web de Spark. El servidor permite el registro de servicios get con funciones lambda y permite la configuración de servicios tipo post. Además, se continúo con la funcionalidad trabajada en el taller anterior que entrega archivos estáticos como html, css, javascript e imagen. Por otro lado, se implementaron funciones para configurar el directorio de donde se leerán los archivos estáticos, para cambiar el tipo de respuesta a *application/json* y, para leer los parámetros del query. 
+Para este taller se continuó con la construcción de un servidor web en Java con una funcionalidad similar a la del microframework web de Spark. El servidor permite el registro de servicios get con funciones lambda y permite la configuración de servicios tipo post. Además, se continúo con la funcionalidad trabajada en el taller anterior que entrega archivos estáticos como html, css, javascript e imagen. Por otro lado, se implementaron funciones para configurar el directorio de donde se leerán los archivos estáticos, para cambiar el tipo de respuesta a *application/json* y, para leer los parámetros del query. 
 
 ## Empezando
 Las siguientes instrucciones permiten que obtenga una copia del proyecto en funcionamiento.
