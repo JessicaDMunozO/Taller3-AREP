@@ -105,7 +105,7 @@ Aquí se puede observar que `Content-Type` es de tipo *application/json*
 
 ![image](https://github.com/JessicaDMunozO/Taller3-AREP/assets/123814482/fe2c3359-15bc-45fc-a8a7-58f104581eb8)
 
-Pero si el servidor se corre si especificar dicho parámetro, por defecto será en formato *text/html*
+Pero si el servidor se corre sin especificar dicho parámetro, por defecto será en formato *text/html*
 
 ![image](https://github.com/JessicaDMunozO/Taller3-AREP/assets/123814482/19c5e391-1499-49d5-a169-f771172b82cb)
 
@@ -114,7 +114,7 @@ Aquí se puede observar que `Content-Type` es de tipo *text/html*
 ![image](https://github.com/JessicaDMunozO/Taller3-AREP/assets/123814482/a920cdee-2084-41bc-aef5-8fb4948abce8)
 
 ### Pruebas Linux
-Estas pruebas se realizaron en una máquina virtual de Ubuntu si escribimos la dirección http:/[IP_servidor]/:35000/movies.html
+Estas pruebas se realizaron en una máquina virtual de Ubuntu, si escribimos la dirección http:/[IP_servidor]/:35000/movies.html
 
 ![image](https://github.com/JessicaDMunozO/Taller3-AREP/assets/123814482/260c2d8f-c5f8-46d5-9726-768db4c9417e)
 
