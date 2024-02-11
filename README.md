@@ -19,7 +19,7 @@ Con el proyecto corriendo debe abrir en un navegador la siguiente dirección: ht
 que fue traido desde el disco local. Veremos los demás recursos y la forma de acceder a ellos en las pruebas que se mostrarán más adelante.
 
 ## Diseño
-Se continúa con el servidor HTTP que escucha por el puert 35000 del taller anterior, pero se realizaron diferentes extensiones para ampliar su funcionalidad. 
+Se continúa con el servidor HTTP que escucha por el puerto 35000 del taller anterior, pero se realizaron diferentes extensiones para ampliar su funcionalidad. 
 
 En el caso de que la URI de una solicitud contenga una consulta de búsqueda de película, ahora se incluye la verificación del tipo de contenido que tendrá la respuesta.
 Por defecto el tipo de contenido es *text/html* si no se proporciona el parametro *responseType*, pero si se envía *json* como valor del parámetro, entonces el tipo de respuesta cambia a *application/json*.
