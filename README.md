@@ -32,7 +32,7 @@ Ahora, si el path contiene la cadena `/files`, se cambia el directorio de donde 
 También puede manejar solicitudes de tipo post, pero esta funcionalidad aún se encuentra en proceso.
 
 ## Evaluación
-Ahora bien en caso de que el usuario quiera desarrollar una aplicación en el servidor, deberá definir la ruta y la acción que quiere ejecutar por medio de funciones lambda, y debe incluirlo en la clase *MyWebServices*. Para este ejemplo se definieron 3 rutas para los servicios get `/arep`, `/arsw` y `/ieti` con su respectivo comportamiento a realizar.
+Ahora bien en caso de que el usuario quiera desarrollar una aplicación en el servidor, deberá definir la ruta y la acción que quiere ejecutar por medio de funciones lambda, y debe incluirlo en la clase *MyWebServices*. Para este ejemplo se definieron 3 rutas para los servicios get `/arep`, `/arsw` e `/ieti` con su respectivo comportamiento a realizar.
 
 En caso de que quiera ver el servicio web asociado a la ruta `/arep` deberá ingresar la siguiente dirección en su navegador http://localhost:35000/action/arep
 
@@ -42,7 +42,7 @@ Y si ingresa una consulta en la ruta, se mostrará cuál fue el parámetro ingre
 
 ![image](https://github.com/JessicaDMunozO/Taller3-AREP/assets/123814482/adef9927-4cea-444b-8f3f-4ec0872dd2a6)
 
-Se tiene un funcionamiento similar para las rutas de `/arsw` y `/ieti`. Con la dirección http://localhost:35000/action/arsw se observa:
+Se tiene un funcionamiento similar para las rutas de `/arsw` e `/ieti`. Con la dirección http://localhost:35000/action/arsw se observa:
 
 ![image](https://github.com/JessicaDMunozO/Taller3-AREP/assets/123814482/0b242e91-a15e-4285-be21-e2d492f5f660)
 
