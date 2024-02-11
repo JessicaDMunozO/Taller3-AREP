@@ -14,11 +14,33 @@ public class HttpServer {
      * ApiMovie instance to search for information about a given movie name
      */
     private static ApiMovie myAPI = new ApiMovie();
+
+    /**
+     * HashMap that stores web services with the route and the web service
+     */
     private static HashMap<String, WebService> services = new HashMap<>();
+
+    /**
+     * A unique instance of the HttpServer class
+     */
     private static HttpServer _instance = new HttpServer();
+
+    /**
+     * An String that stores the directory where static files are going to be shown
+     */
     private static String filesDirectory;
+
+    /**
+     * An String that represents the content type of the response, as default is
+     * text/html
+     */
     private static String type = "text/html";
 
+    /**
+     * Get the unique instance of the HttpServer class
+     * 
+     * @return the singleton instance of the HttpServer class
+     */
     public static HttpServer getInstance() {
         return _instance;
     }
@@ -68,6 +90,7 @@ public class HttpServer {
             String path = fileuri.getPath();
             System.out.println("Path: " + path);
 
+            // Query
             String query = fileuri.getQuery();
             System.out.println("Query: " + query);
             String param = "";
@@ -80,23 +103,27 @@ public class HttpServer {
             if (uriStr.contains("movie?title")) {
                 String[] parts = uriStr.split("=");
                 movieName = parts[1];
-
+                // set content type of the response
                 if (responseType.equals("json")) {
                     setResponseType("application/json");
                 }
 
                 printMovieResult(movieName, out);
+
             } else {
                 try {
+                    // Defined services
                     if (path.startsWith("/action")) {
                         String webURI = path.replace("/action", "");
                         if (services.containsKey(webURI)) {
                             outputLine = services.get(webURI).handle(param);
                         }
                     } else if (path.startsWith("/files")) {
+                        // Static files from other directory
                         setFilesDirectory("target/classes");
                         outputLine = httpClientHtml(path, clientSocket);
                     } else {
+                        // Static files from the initial directory
                         setFilesDirectory("target/classes/public");
                         outputLine = httpClientHtml(path, clientSocket);
                     }
@@ -159,6 +186,7 @@ public class HttpServer {
                 + "Content-Type:" + content_type + "\r\n"
                 + "\r\n";
 
+        // Read the content of the file from a specific directory
         Path file = Paths.get(filesDirectory + path);
         System.out.println(file);
 
@@ -184,7 +212,7 @@ public class HttpServer {
     }
 
     /**
-     * Print information about the specific movie
+     * Print information about the specific movie with a specific content type
      * 
      * @param movieName name of the movie to be seached
      * @param out       PrintWriter to send response to the client
@@ -193,6 +221,7 @@ public class HttpServer {
         String movieInfo;
 
         try {
+            // search for movie information using the API
             movieInfo = myAPI.searchMovieInformation(movieName);
         } catch (Exception e) {
             movieInfo = "Ups, try later.";
@@ -207,18 +236,38 @@ public class HttpServer {
         out.println(movieResponse);
     }
 
+    /**
+     * Register a web service with the specified route
+     * 
+     * @param r route of the web service
+     * @param s the web service associated to the route
+     */
     public static void get(String r, WebService s) {
         services.put(r, s);
     }
 
+    /**
+     * Sets the directory from which static files will be served
+     * 
+     * @param directory the directory path where static files are located
+     */
     public static void setFilesDirectory(String directory) {
         filesDirectory = directory;
     }
 
+    /**
+     * Sets the response content type
+     * 
+     * @param responseType the content type that is going to be used to display the
+     *                     response
+     */
     public static void setResponseType(String responseType) {
         type = responseType;
     }
 
+    /**
+     * Method in progress for handling POST requests
+     */
     public static void post() {
         System.out.println("In progress");
     }

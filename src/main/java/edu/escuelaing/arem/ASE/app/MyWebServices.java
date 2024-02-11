@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 
 public class MyWebServices {
     public static void main(String[] args) throws IOException, URISyntaxException {
+        // route and lambda function to handle the request to that route
         HttpServer.get("/arep", (param) -> {
             String resp = "HTTP/1.1 200 OK\r\n"
                     + "Content-Type:text/html\r\n"
