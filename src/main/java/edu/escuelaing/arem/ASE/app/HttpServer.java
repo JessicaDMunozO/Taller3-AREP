@@ -218,4 +218,8 @@ public class HttpServer {
     public static void setResponseType(String responseType) {
         type = responseType;
     }
+
+    public static void post() {
+        System.out.println("In progress");
+    }
 }
