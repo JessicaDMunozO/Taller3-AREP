@@ -25,11 +25,9 @@ En el caso de que la URI de una solicitud contenga una consulta de búsqueda de 
 Por defecto el tipo de contenido es *text/html* si no se proporciona el parametro *responseType*, pero si se envía *json* como valor del parámetro, entonces el tipo de respuesta cambia a *application/json*.
 
 En caso de que no esté haciendo la búsqueda de una película, se verifica si el path contiene la cadena `/action`, lo que indica que es un servicio definido
-por el usuario. De modo que, el servidor busca en un mapa que contiene dichos servicios y maneja la solicitud para la ruta especificada por medio de la interfaz *WebService*. Las rutas definidas para los servicios get son: `/arep`, `/arsw` e `/ieti` y dichos servicios web son definidos en la clase *MyWebServices* con su respectivo comportamiento. Si al solicitar alguno de estos servicios se añade una consulta que incluya un parámetro, entonces dentro del manejo de la solicitud se imprime adicionalmente el parámetro recibido de la query.
+por el usuario. De modo que, el servidor busca en un mapa que contiene dichos servicios y maneja la solicitud para la ruta especificada por medio de la interfaz *WebService*. Las rutas definidas para los servicios get son: `/arep`, `/arsw` e `/ieti` y dichos servicios web son definidos en la clase *MyWebServices* con su respectivo comportamiento. Si al solicitar alguno de estos servicios se añade una consulta que incluya un parámetro, entonces dentro del manejo de la solicitud se imprime adicionalmente el parámetro recibido de la query. También se tiene el diseño para manejar solicitudes de tipo post. La ruta usada para dicho servicio es `/prueba`.
 
 Ahora, si el path contiene la cadena `/files`, se cambia el directorio de donde se leen los archivos estáticos al directorio creado de *files*, pero si no se cumplen ninguna de estas condiciones se toma el directorio inicial para leer los archivos estáticos de `target/classes/public`.
-
-También puede manejar solicitudes de tipo post, pero esta funcionalidad aún se encuentra en proceso.
 
 ## Evaluación
 Ahora bien en caso de que el usuario quiera desarrollar una aplicación en el servidor, deberá definir la ruta y la acción que quiere ejecutar por medio de funciones lambda, y debe incluirlo en la clase *MyWebServices*. Para este ejemplo se definieron 3 rutas para los servicios get `/arep`, `/arsw` e `/ieti` con su respectivo comportamiento a realizar.
@@ -57,6 +55,14 @@ Por último, si se ingresa la dirección http://localhost:35000/action/ieti
 Y si se ingresa un parámetro http://localhost:35000/action/ieti?query=hola
 
 ![image](https://github.com/JessicaDMunozO/Taller3-AREP/assets/123814482/8768603c-60e4-4a65-af8a-5263707f9c73)
+
+Para el servicio post se prueba con la ruta `/prueba` http://localhost:35000/action/prueba
+
+![image](https://github.com/JessicaDMunozO/Taller3-AREP/assets/123814482/71eb2cea-7fe2-49a2-8d79-49ea387f9f75)
+
+Y si se ingresa algún parámetro http://localhost:35000/action/prueba?test=arep
+
+![image](https://github.com/JessicaDMunozO/Taller3-AREP/assets/123814482/5cd530ea-09b5-4098-965f-56a4eb954578)
 
 ### Prueba otras funcionalidades en Windows
 Con lo anterior se probó el funcionamiento de los servicios web de tipo GET y se evidenció la funcionalidad de la lectura de parámetros del query. 
