@@ -45,6 +45,19 @@ public class MyWebServices {
             return resp;
         });
 
+        HttpServer.post("/prueba", (param) -> {
+            String resp = "HTTP/1.1 200 OK\r\n"
+                    + "Content-Type:text/html\r\n"
+                    + "\r\n"
+                    + "<h1> POST test! </h1>";
+
+            if (param != "") {
+                resp += "<p> The parameter of your query was: " + param + "</p>";
+            }
+
+            return resp;
+        });
+
         HttpServer.getInstance().runServer("json");
     }
 }

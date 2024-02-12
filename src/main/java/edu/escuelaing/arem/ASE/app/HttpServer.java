@@ -237,10 +237,11 @@ public class HttpServer {
     }
 
     /**
-     * Register a web service with the specified route
+     * Register a web service for handling HTTP GET requests with the specified
+     * route
      * 
      * @param r route of the web service
-     * @param s the web service associated to the route
+     * @param s the web service implementation for handling GET requests
      */
     public static void get(String r, WebService s) {
         services.put(r, s);
@@ -266,9 +267,13 @@ public class HttpServer {
     }
 
     /**
-     * Method in progress for handling POST requests
+     * Register a web service for handling HTTP POST requests with the specified
+     * route
+     * 
+     * @param r route of the web service
+     * @param s the web service implementation for handling POST requests
      */
-    public static void post() {
-        System.out.println("In progress");
+    public static void post(String r, WebService s) {
+        services.put(r, s);
     }
 }
