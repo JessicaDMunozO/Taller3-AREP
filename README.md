@@ -65,7 +65,7 @@ Y si se ingresa algún parámetro http://localhost:35000/action/prueba?test=arep
 ![image](https://github.com/JessicaDMunozO/Taller3-AREP/assets/123814482/5cd530ea-09b5-4098-965f-56a4eb954578)
 
 ### Prueba otras funcionalidades en Windows
-Con lo anterior se probó el funcionamiento de los servicios web de tipo GET y se evidenció la funcionalidad de la lectura de parámetros del query. 
+Con lo anterior se probó el funcionamiento de los servicios web y se evidenció la funcionalidad de la lectura de parámetros del query. 
 
 Ahora bien, los archivos estáticos traidos del directorio `public` siguen funcionando. Al ingresar la dirección http://localhost:35000/movies.html se muestra la página html que tiene css, script e imagen.
 
@@ -91,7 +91,7 @@ Pero se pueden leer archivos estáticos del directorio `files` que fue creado. P
 
 ![image](https://github.com/JessicaDMunozO/Taller3-AREP/assets/123814482/ad1d8585-bce3-4f39-87b6-9d8859aceeec)
 
-para consultar el css http://localhost:35000/files/styles.css
+Para consultar el css http://localhost:35000/files/styles.css
 
 ![image](https://github.com/JessicaDMunozO/Taller3-AREP/assets/123814482/ed3fe567-8462-4cb4-81a5-621bbfc6cc0b)
 
@@ -124,7 +124,7 @@ Estas pruebas se realizaron en una máquina virtual de Ubuntu, si escribimos la 
 
 ![image](https://github.com/JessicaDMunozO/Taller3-AREP/assets/123814482/260c2d8f-c5f8-46d5-9726-768db4c9417e)
 
-ejemplo de búsqueda de una película
+Ejemplo de búsqueda de una película
 
 ![image](https://github.com/JessicaDMunozO/Taller3-AREP/assets/123814482/1678758a-232c-4654-8543-81f6c3b2d97e)
 
